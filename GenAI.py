@@ -1,15 +1,6 @@
 import streamlit as st
 from google import genai
 from google.genai import types
-st.markdown(
-  """
-  <h1 style='text-align: center;'> Python AI Assistant</h1>
-  <p style='text-align: center; font-size:18px;'>
-    Ask any Python programming question.
-  </p>
-  """,
-  unsafe_allow_html=True,
-)
 config = types.GenerateContentConfig(
     system_instruction = ".You are an expert Python developer.
  Answer only questions related to Python programming.
@@ -17,8 +8,6 @@ config = types.GenerateContentConfig(
  Please ask a Python-related question.
  Do not answer questions outside the Python domain."
   )
-import streamlit as st
-from google import genai
 st.markdown(
   """
   <h1 style='text-align: center;'> Python AI Assistant</h1>
@@ -58,4 +47,4 @@ with col2:
 if send:
   question = question + config.system_instruction
   response = mychat.send_message(question)
-  response_placeholder.write(response.tex
+  response_placeholder.write(response.text)
